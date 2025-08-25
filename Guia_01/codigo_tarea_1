@@ -1,0 +1,122 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+int main() {
+
+	//---------- ITEM 1 ----------------------------------------
+
+	// Modifica el código para que calcule y muestre:
+	//• La suma de tres números diferentes(no todos iguales a 10)
+	//	• La resta entre dos números
+	//	• El producto de dos números
+	//	• La división de dos números(usa float para mostrar decimales)
+
+	int x, y, z;
+	x = 2; y = 3; z = 10;
+	printf("1.-\n   Suma de varibles: %d + %d + %d = %d\n", x, y, z, x + y + z);
+	printf("2.-\n   El resultado de la resta entre %d; %d; y %d es: %d\n", x, y, z, x - y - z);
+	printf("3.- \n   El producto entre %d y %d es: %d\n", y, z, y * z);
+	//float division = (float) y / z; ------> también se podría hacer así!!
+	printf("4.-\n   La division entre %d y %d es: %.1f\n", y, z, (float)y / z);
+	//printf("\nCase 2: result is equal to %f", result);
+	float division2 = (float)y / x;
+	printf("5.-\n El Resultado de la segunda division imprimiendo con el segundo metodo es: %d / %d = %.1f\n", y, x, division2);
+
+
+	//--------- ITEM 2 --------------------------------------
+
+	/*Ejercicio 2: Tipos de Datos
+		Objetivo : Trabajar con diferentes tipos de datos y sus formatos de impresión.
+		Crea variables de todos los tipos básicos y muéstralas :
+	• char(un carácter de tu inicial)
+		• int(tu edad)
+		• float(tu altura en metros)
+		• double(valor de PI con más precisión)
+		• bool(si te gusta programar)
+		//Imprime cada variable con el formato correcto.*/
+
+	char inicial = 'I';
+	printf("6.-\n   La inicial de mi nombre es: %c\n", inicial);
+	float estatura = 1.77;
+	printf("7.-\n   Mi estatura en metros corresponde a %.2f [m]\n", estatura);
+	double PiNums = 3.1415926535897932;
+	printf("8.-\n   Los primeros 15 numeros de pi son ---> %.16f\n", PiNums);
+	bool encendido = false;   // al inicio la máquina está apagada pues la variable 'bool' de define así. En este caso es un 0.
+
+	printf("9.-\n   Estado inicial: ");
+	// Iniciamos el ejemplo para probar como funciona la variable de tipo bool
+	// En este momento del código la variable está definida como falso o 0.
+	if (encendido) { //en este caso el 'if' evalúa si 'encendido' es verdadero o no
+		printf("Encendida\n");
+	}
+	else {
+		printf("Apagada\n");
+
+		printf("\n\n ---Ahora cambiamos la variable---\n\n");
+	}
+
+	// Ahora la encendemos definiendo la variable de nuevo
+	encendido = true;
+
+	printf("Nuevo estado: ");
+	if (encendido) {
+		printf("Encendida\n");
+	}
+	else {
+		printf("Apagada\n");
+	}
+
+	/*Ejercicio 3: Control de Decimales
+	
+		Objetivo : Dominar el formateo de números decimales.
+		Usando el número 123.456789 :
+		• Muéstralo sin decimales
+		• Muéstralo con 2 decimales
+		• Muéstralo con 5 decimales
+		• Muéstralo en notación científica*/
+
+	float numej3 = 123.456789;
+
+	printf("Ahora se muestra el numero con dos decimales ---> %.2f", numej3);
+	printf("\n\nAhora se muestra el numero con cinco decimales ---> %.5f", numej3);
+	printf("\n\nAhora se muestra el numero en notacion cientifica ---> %.7e", numej3);
+
+	/*Ejercicio 4: Operadores de Asignación Múltiple
+		Objetivo : Entender la asignación múltiple de variables.
+		Crea tres variables a, b, c y asígnales el valor 25 en una sola línea.Luego :
+		• Suma 5 a cada una
+		• Multiplica a por 2
+		• Divide b entre 3
+		• Resta 10 a c Muestra los resultados.*/
+
+	int a, b, c; //creamos las variables
+	a = b = c = 25; //Asignamos el valor 25 a cada una en la misma linea
+	a = a + 5; b = b + 5; c = c + 5; //Sumamos 5 a cada una de las variables, aprovechamos de hacerlo en la misma linea
+	a = a * 2; //Multiplicamos a por 2
+	b = b / 3; //Dividimos b por tres
+	c = c - 10; //Restamos 10 a c
+	char chara = 'A';
+	char charb = 'B';
+	char charc = 'C';
+
+	printf("\n\nLuego de las operaciones anteriores, las variables quedan de la siguiente manera: \n\n\n");
+	printf("%c es igual a %d\n%c es igual a %d\n%c es igual a %d\n\n\n", chara, a, charb,b, charc, c);
+
+
+	/*Ejercicio 5: Cadenas de Caracteres 
+Objetivo: Trabajar con strings de diferentes formas. 
+Crea tu nombre usando: 
+1.
+ 2.
+ 3.
+ Un arreglo de caracteres inicializado como string 
+Un arreglo de caracteres inicializado carácter por carácter 
+Imprime ambos y verifica que son iguales*/
+
+	char nombre1[] = "Ignacio Marino\n";
+	printf("Mi Nombre Es: %s", nombre1); // ---> debemos indicar la string de chars con un %s
+	char nombre2[] = { 'I', 'g', 'n', 'a', 'c', 'i', 'o', ' ', 'M', 'a', 'r', 'i', 'n', 'o', '\0'}; 
+	//cuando usamos esta forma debemos colocar el \0 como caracter al final para indicar que la string se terminó.
+	// Recordar que el espacio también es un caracter.
+	printf("Mi Nombre Es: %s\n", nombre2);
