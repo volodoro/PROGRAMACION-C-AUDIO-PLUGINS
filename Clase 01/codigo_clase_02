@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+
+	// Operation and print results 
+
+	int x, y, z; //Se pueden definir varias variables del mismo tipo en una sola linea
+	x = y = z = 7; //De esta manera también podemos asignar valores a las variables
+	printf("Case 1: %d + %d + %d = %d", x, y, z, x + y + z);
+	float result = (float)(x * x) / (float)(x + y); //si colocamos el tipo de variable antes de un valor, este será transormado
+	//es como poner int (como función) antes de un float en processing!!!
+	printf("\nCase 2: result is equal to %.1f", result); //el \n podría haber ido al final del printf anterior, pero esto también es válido
+	//(float)a ----> cast a a [así se denomina lo que estamos haciendo], no ocupa memoria.
+
+	// Create other types variables
+
+	char myLetter = 'D';       // Character
+	int myNum = 5;         // Integer or whole number ()
+	float myFloatNum = 5.99;      // Floating point number (32 bits)
+	double myDoubleNum = 3.1415;    // Double (Floating x 2 = 64 bits) point number
+
+
+
+	// Print variables
+
+	printf("\nCase 3: %d\n", myNum);
+	printf("Case 4: %f\n", myFloatNum);
+	printf("Case 5: %c\n", myLetter);
+	printf("Case 6: %f\n", myDoubleNum);
+
+	// Scientific notation
+
+	double cn_1 = 2.0e-5;
+	printf("Case 7: Scientific notation -> %e\n", cn_1);
+
+
+	// Decimal print control Esto NO MODIFICA el número, solo modificamos la cantidad de decimales que se imprimen, a pesar de que REDONDEA,
+	//pero, de nuevo, esto solo está afectando cómo se imprime la variable, pero en esencia, no cambia
+
+	double k = 12.34567;
+	printf("Case 8:  %.1f\n", k);
+	printf("Case 9: %.2f\n", k);
+	printf("Case 10: %.3f\n", k);
+
+	// Boolean var La gran dificultad de esto es que el computador es completamente binario,
+
+	bool isRed = false;
+	bool isOn = true;
+	printf("Case 11: isRed = %d\n", isRed);
+	printf("Case 12: isOn  = %d\n", isOn);
+
+	// String: Es una sucesión de 'char'
+	//char es un caracter pero como queremos escribir una palabra, que son varios, debemos escribir un array
+	char array_char[] = "Hello World!\n"; // el [] indica que será un arreglo. Los espacios TAMBIEN son un caracter
+	printf("Case 12: %s", array_char);
+
+
+	// Char
+
+	char literal_string[] = { 'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0' }; // '\0' indica que se acabó el texto ----> end of file
+	printf("Case 13: %s", literal_string);
+
+	//todas las variables que definimos en un código se guardan en la memoria RAM
+
+	return 0;
+}
+
+
+//ADDITIONAL INFORMATION - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// Shorcuts:
+//ctrl + k + c -> Comentar lo seleccionado
+//ctrl + k + u -> Descomentar lo seleccionado
+
+/*
+Restricciones de nombres de variables :
+Names can contain letters, digits and underscores
+Names must begin with a letter or an underscore(_)
+Names are case sensitive(myVar and myvar are different variables)
+Names cannot contain whitespaces or special characters like !, #, %, etc.
+Reserved words(such as int) cannot be used as names
+*/
+
+//
