@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
 
 int main() {
 
@@ -68,7 +69,7 @@ int main() {
 	}
 
 	/*Ejercicio 3: Control de Decimales
-	
+
 		Objetivo : Dominar el formateo de números decimales.
 		Usando el número 123.456789 :
 		• Muéstralo sin decimales
@@ -101,22 +102,89 @@ int main() {
 	char charc = 'C';
 
 	printf("\n\nLuego de las operaciones anteriores, las variables quedan de la siguiente manera: \n\n\n");
-	printf("%c es igual a %d\n%c es igual a %d\n%c es igual a %d\n\n\n", chara, a, charb,b, charc, c);
+	printf("%c es igual a %d\n%c es igual a %d\n%c es igual a %d\n\n\n", chara, a, charb, b, charc, c);
 
 
-	/*Ejercicio 5: Cadenas de Caracteres 
-Objetivo: Trabajar con strings de diferentes formas. 
-Crea tu nombre usando: 
+	/*Ejercicio 5: Cadenas de Caracteres
+Objetivo: Trabajar con strings de diferentes formas.
+Crea tu nombre usando:
 1.
  2.
  3.
- Un arreglo de caracteres inicializado como string 
-Un arreglo de caracteres inicializado carácter por carácter 
+ Un arreglo de caracteres inicializado como string
+Un arreglo de caracteres inicializado carácter por carácter
 Imprime ambos y verifica que son iguales*/
 
 	char nombre1[] = "Ignacio Marino\n";
 	printf("Mi Nombre Es: %s", nombre1); // ---> debemos indicar la string de chars con un %s
-	char nombre2[] = { 'I', 'g', 'n', 'a', 'c', 'i', 'o', ' ', 'M', 'a', 'r', 'i', 'n', 'o', '\0'}; 
+	char nombre2[] = { 'I', 'g', 'n', 'a', 'c', 'i', 'o', ' ', 'M', 'a', 'r', 'i', 'n', 'o', '\0' };
 	//cuando usamos esta forma debemos colocar el \0 como caracter al final para indicar que la string se terminó.
 	// Recordar que el espacio también es un caracter.
 	printf("Mi Nombre Es: %s\n", nombre2);
+
+	/*Ejercicio 6: Operaciones Lógicas con Booleanos
+Objetivo: Practicar operadores lógicos con variables booleanas.
+Crea cuatro variables booleanas:
+• esDia (true)
+• esSoleado (false)
+• tengoTarea (true)
+• esFinDeSemana (false)
+Evalúa y muestra el resultado de:
+• esDia && esSoleado
+• !tengoTarea
+• esFinDeSemana || !tengoTarea */
+
+	bool esDia, esSoleado, tengoTarea, esFinDeSemana;
+
+	esDia = true;
+	esSoleado = false;
+	tengoTarea = true;
+	esFinDeSemana = false;
+	printf("\n\nEjercicio 6:\n\n");
+	printf("El resultado de la operacion AND esDia && esSoleado es ---> %d\n", esDia && esSoleado);
+	printf("El resultado de la operacion NOT !tengoTarea es ---> %d\n", !tengoTarea);
+	printf("El resultado de la operacion OR esFinDeSemana || !tengoTarea es ---> %d\n", esFinDeSemana || !tengoTarea);
+
+	/*Ejercicio 7: Cálculos Matemáticos Complejos
+Objetivo: Combinar múltiples operaciones matemáticas.
+Dados tres números enteros, calcula e imprime:
+• La media aritmética
+• El cuadrado de cada número
+• La suma de los cuadrados
+• La raíz cuadrada de la suma (usa #include <math.h> y -lm al compilar)*/
+
+	int entero1, entero2, entero3;
+	entero1 = 2;
+	entero2 = 3;
+	entero3 = 5; //Definimos que los números son los tres primeros números primos
+
+	double media_aritmetica = (float) (entero1 + entero2 + entero3) / 3;
+
+	printf("\n\n La media aritmetica de entre estos tres numeros es %.6f\n", media_aritmetica);
+	printf("\n\n El cuadrado de 2 es %d\n", entero1 * entero1);
+	printf("\n El cuadrado de 3 es %d\n", entero2* entero2);
+	printf("\n El cuadrado de 5 es %d\n", entero3* entero3);
+	
+	int suma_cuadrados = (entero1 * entero1) + (entero2 * entero2) + (entero3 * entero3);
+
+	printf("\n La suma de los cuadrados de los tres numeros enteros es %d\n\n",suma_cuadrados);
+
+	float raiz_suma = sqrt(suma_cuadrados); 
+
+	printf("\n La raiz de la suma de los cuadrados es %f\n", raiz_suma);
+
+	/*Ejercicio 8: Formato de Salida Avanzado 
+Objetivo: Dominar el formateo avanzado con printf. 
+Para el número 42.123456789: 
+• Imprímelo con ancho de campo de 10 caracteres 
+• Alineado a la izquierda 
+• Con ceros a la izquierda 
+• Como porcentaje (multiplicado por 100 con símbolo %)*/
+
+
+
+
+
+}
+
+
