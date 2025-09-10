@@ -1,0 +1,74 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+
+#define PI 3.14159265
+
+enum FUNCTIONTYPE {
+    NONE, SIN, COS
+};
+
+struct Vector
+{
+    enum FUNCTIONTYPE ftype;
+    int length;
+    float* elements;
+};
+
+void initialize_vector(struct Vector* vector, int size, enum FUNCTIONTYPE ftype)
+{
+    vector->ftype = ftype;
+    vector->length = size;
+    vector->elements = (float*)malloc(size * sizeof(float));
+};
+
+int main() {
+
+    // Creación de instancia
+    struct Vector vec;
+
+    // - - - - - - - - EJERCICIO - - - - - - - -
+    // Inicializar el vector para guardar 12 datos, los cuales deben ser los valores de la función seno.
+    // Los doce valores de ángulo van desde 0 a 2*PI
+
+    // Inicialización de instancia
+    initialize_vector(&vec, 12, SIN); // ---> Cambiamos el 5 que se encontraba aquí inicialmente por un 12
+    printf("El vector tiene un largo de %d, y la funcion definida es %d\n", vec.length, vec.ftype);
+
+    // float alfa[] = {0, PI / 6 ,PI / 3, PI / 2, 2 * PI / 3, 5 * PI / 6, PI, 7 * PI / 6, 4 * PI / 3, 3 * PI / 2, 5 * PI /3, 11 * PI / 6, };
+    // Escribir los datos manualmente no es una buena solución, lo mejor es hacer que se calculen automáticamente
+    // Podríamos por ejemplo usar un ciclo for, si es así, debería iterar a misma cantidad de veces que el ciclo for de abajo
+    // 
+    // Asignación de valores
+
+    float desde = 0;
+    float hasta = 2 * PI;
+    float delata = (hasta / desde) / (vec.length - 1);
+    float alfa = desde;
+
+
+    for (int n = 0; n < vec.length; n++) {
+
+        //Calculo del ángulo
+
+        switch (vec.ftype) {
+        case SIN:  vec.elements[n] = sin(alfa[n]); break;
+        case COS:  vec.elements[n] = cos(alfa[n]); break;
+        case NONE: vec.elements[n] = -1; break;
+
+        }
+
+        // Implementamos el incremento de alfa al final de cada iteración
+
+        alfa += delta
+       //también podría ser alfa = alfa + delta
+       //también podríamos implementar el incremento en la función sin ---> sin((alfa + delta)[n])
+
+    }
+
+    // Imprimir valores
+    for (int n = 0; n < vec.length; n++) {
+        printf("%f\n", vec.elements[n]);
+    }
+}
