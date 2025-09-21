@@ -120,12 +120,15 @@ Crea tu nombre usando:
 Un arreglo de caracteres inicializado carácter por carácter
 Imprime ambos y verifica que son iguales*/
 
-	char nombre1[] = "Ignacio Marino\n";
+	char nombre1[] = "Ignacio Marino";
 	printf("Mi Nombre Es: %s", nombre1); // ---> debemos indicar la string de chars con un %s
 	char nombre2[] = { 'I', 'g', 'n', 'a', 'c', 'i', 'o', ' ', 'M', 'a', 'r', 'i', 'n', 'o', '\0' };
 	//cuando usamos esta forma debemos colocar el \0 como caracter al final para indicar que la string se terminó.
 	// Recordar que el espacio también es un caracter.
 	printf("Mi Nombre Es: %s\n", nombre2);
+	printf("Valor de la comparacion usando strcmp() --> %d \n", strcmp(nombre1, nombre2));
+	printf("Los arreglos de caracteres son iguales? --> %s \n", strcmp(nombre1, nombre2) == 0 ? "Si" : "No");
+
 
 	/*Ejercicio 6: Operaciones Lógicas con Booleanos
 Objetivo: Practicar operadores lógicos con variables booleanas.
