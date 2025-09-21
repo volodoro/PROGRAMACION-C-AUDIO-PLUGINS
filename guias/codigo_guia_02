@@ -1,0 +1,140 @@
+#include <stdio.h>
+#include <string.h>
+
+// TODO: Implementar la función swap
+void swap(int* a, int* b) {
+
+	int temp = 0;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+
+}
+
+
+int main() {
+
+	printf("---------- GUIA 02 ----------\n\n\n");
+	printf("Ejercicio 01:\n\n");
+
+	int numero = 42;
+	int* pNumero = NULL;
+	pNumero = &numero;
+
+
+	// TODO: Asignar la dirección de 'numero' a 'ptr'
+
+	// TODO: Imprimir el valor de 'numero' usando el puntero
+	printf("Valor usando puntero: %d\n", *pNumero);
+
+	// TODO: Modificar el valor de 'numero' a través del puntero
+
+	*pNumero = 100; //Esto significa que estoy alterando LA VARIABLE QUE SE ENCUENTRA EN LA DIRECCIÓN &numero
+
+	printf("Nuevo valor: %d\n\n", numero);
+
+	printf("\n\nEjercicio 02:\n\n");
+
+	int arr[5] = { 10, 20, 30, 40, 50 };
+	int* pArreglo = NULL;
+	pArreglo = arr; // arr es equivalente a &arr[0]
+
+	// TODO: Imprimir todos los elementos usando aritmética de punteros
+
+	for (int i = 0; i < 5; i++) {
+		printf("Elemento %d: %d\n", i, pArreglo[i]);
+	}
+
+	printf("\n\n");
+
+	// TODO: Modificar el tercer elemento (índice 2) usando punteros
+
+	pArreglo[2] = 666; //por alguna razón creo que no es necesario desreferenciar cuando son arreglos ???
+
+	for (int i = 0; i < 5; i++) {
+
+		printf("Elemento %d: %d\n", i, pArreglo[i]);
+	}
+
+	// TODO: Imprimir el arreglo modificado
+
+	printf("\n\nEjercicio 03:\n\n");
+
+	int a = 5, b = 10;
+
+	printf("Antes del intercambio: a = %d, b = %d\n", a, b);
+
+	swap(&a, &b);
+
+	printf("\nDespués del intercambio: a = %d, b = %d\n", a, b);
+
+
+	printf("\n\nEjercicio 04:\n\n");
+
+	int a1 = 10, b1 = 20, c1 = 30, d1 = 40;
+
+
+
+	// TODO: Declarar un arreglo de 4 punteros a enteros
+
+	int* punteros[4]; // ----> Aquí estoy declarando un arreglo de 4 elementos a base de punteros
+
+
+	// TODO: Inicializar cada puntero con la dirección de las variables
+
+	punteros[0] = &a1;
+	punteros[1] = &b1;
+	punteros[2] = &c1;
+	punteros[3] = &d1;
+
+	// TODO: Imprimir los valores usando el arreglo de punteros
+	for (int i = 0; i < 4; i++) {
+		printf("Valor %d: %d\n", i, *punteros[i]); //para imprimir el valor alojado en la direccion de memoria
+		//debo desreferenciar, si no, lo que se imprime es la dirección hexadecimal
+	}
+
+	for (int i = 0; i < 4; i++) {
+
+		*punteros[i] += 5; // A cada variable alojada en el puntero de i, le sumo 5;
+
+
+
+	}
+	printf("\nDespues de sumar 5:\n");
+	printf("a = %d, b = %d, c = %d, d = %d\n", a1, b1, c1, d1);
+
+	printf("\n\nEjercicio 05:\n\n");
+
+	// TODO: Declarar un arreglo de punteros a char con nombres de 	frutas
+
+	char* frutas[] = {"manzana", "pera","platano","tomate","mango"};
+
+		int size = sizeof(frutas) / sizeof(frutas[0]);
+
+		printf("Lista de frutas:\n\n");
+
+		// TODO: Imprimir todas las frutas usando un bucle
+
+		for (int i = 0; i < size; i++) {
+
+			printf("Fruta numero %d ---> %s\n", i + 1, frutas[i]);
+		}
+
+		//// TODO: Buscar una fruta específica (ej: "mango")
+		char* buscar = "mango";
+		int encontrado = 0;
+
+		//// Implementar búsqueda
+
+		//if (encontrado) {
+		//	printf("\n'%s' fue encontrado en la lista.\n", buscar);
+		//}
+		//else {
+		//	printf("\n'%s' no fue encontrado en la lista.\n", buscar);
+		//}
+
+
+
+	return 0;
+}
