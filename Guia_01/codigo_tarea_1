@@ -3,6 +3,11 @@
 #include <string.h>
 #include <math.h>
 
+#define PI 3.14159
+#define VELOCIDAD_LUZ 299792458 //metros / segundo
+#define ANHO_NACIMIENTO 2002
+
+
 int main() {
 
 	//---------- ITEM 1 ----------------------------------------
@@ -158,33 +163,191 @@ Dados tres números enteros, calcula e imprime:
 	entero2 = 3;
 	entero3 = 5; //Definimos que los números son los tres primeros números primos
 
-	double media_aritmetica = (float) (entero1 + entero2 + entero3) / 3;
+	double media_aritmetica = (float)(entero1 + entero2 + entero3) / 3;
 
 	printf("\n\n La media aritmetica de entre estos tres numeros es %.6f\n", media_aritmetica);
 	printf("\n\n El cuadrado de 2 es %d\n", entero1 * entero1);
-	printf("\n El cuadrado de 3 es %d\n", entero2* entero2);
-	printf("\n El cuadrado de 5 es %d\n", entero3* entero3);
-	
+	printf("\n El cuadrado de 3 es %d\n", entero2 * entero2);
+	printf("\n El cuadrado de 5 es %d\n", entero3 * entero3);
+
 	int suma_cuadrados = (entero1 * entero1) + (entero2 * entero2) + (entero3 * entero3);
 
-	printf("\n La suma de los cuadrados de los tres numeros enteros es %d\n\n",suma_cuadrados);
+	printf("\n La suma de los cuadrados de los tres numeros enteros es %d\n\n", suma_cuadrados);
 
-	float raiz_suma = sqrt(suma_cuadrados); 
+	float raiz_suma = sqrt(suma_cuadrados);
 
 	printf("\n La raiz de la suma de los cuadrados es %f\n", raiz_suma);
 
-	/*Ejercicio 8: Formato de Salida Avanzado 
-Objetivo: Dominar el formateo avanzado con printf. 
-Para el número 42.123456789: 
-• Imprímelo con ancho de campo de 10 caracteres 
-• Alineado a la izquierda 
-• Con ceros a la izquierda 
-• Como porcentaje (multiplicado por 100 con símbolo %)*/
+	/*Ejercicio 9: Manipulación de Caracteres
+Objetivo: Trabajar con códigos ASCII y caracteres.
+Crea un programa que:
+• Declare un carácter con valor 'A'
+• Imprima el carácter
+• Imprima su valor ASCII
+• Incremente el carácter para obtener 'B'
+• Imprima el nuevo carácter y su valor ASCII */
+
+
+	char caracter = 'A';
+
+	printf("\nLa letra correspondiente al caracter es ---> %c\n", caracter);
+	printf("El valor en ASCII para el caracter %c es ---> %d\n", caracter, caracter);
+
+	caracter++;
+
+	printf("\nLa nueva letra correspondiente al caracter es ---> %c\n", caracter);
+	printf("El nuevo valor en ASCII para el caracter %c es ---> %d\n\n", caracter, caracter);
+
+	/*Ejercicio 10: Constantes y Macros
+
+ Objetivo: Usar constantes para valores que no cambian.
+Define constantes para:
+• PI (3.14159)
+• Velocidad de la luz (299792458)
+• Tu año de nacimiento
+Usa estas constantes para calcular:
+• El área de un círculo de radio 5
+• La distancia que recorre la luz en 1 segundo
+• Tu edad actual */
+
+	int radio = 5; // definimos el radio del círculo cuya area queremos calcular
+
+	double area_circulo = radio * radio * PI;
+
+	printf("El area de un circulo de radio %.2f es igual a %.2f\n", (float)radio, area_circulo);
+	printf("La distancia que recorre la luz en un segundo es igual a %d metros\n", VELOCIDAD_LUZ);
+	printf("Mi edad calculada en base a mi anho de nacimiento es ---> 2025 - %d = %d\n\n", ANHO_NACIMIENTO, 2025 - ANHO_NACIMIENTO);
+
+	/*Ejercicio 11: Intercambio de Variables
+Objetivo: Intercambiar valores entre variables sin usar variable auxiliar.
+Crea dos variables enteras con valores diferentes y intercámbialas usando solo
+operaciones aritméticas (suma y resta), luego muestra los valores antes y después
+del intercambio. */
+
+
+	int var1, var2;
+	var1 = 15;
+	var2 = 40;
+
+	printf("\nVariables antes del intercambio: Variable 1 --> %d, Variable 2 --> %d", var1, var2);
+
+	var1 = var2 - var1; // aqui la variable 1 es igual a 25 (40 - 15 = 25)
+	var2 = var2 - var1; // aqui la variable 2 es igual a 15 (40 - 25 = 15)
+	var1 = var1 + var2; // aquí la variable 1 es igual a 40 (25 + 15 = 40)
+
+	printf("\nVariables despues del intercambio: Variable 1 --> %d, Variable 2 --> %d\n\n", var1, var2);
+
+	/*Ejercicio 12: Operadores de Incremento y Decremento
+Objetivo: Entender la diferencia entre ++i e i++.
+Con una variable contador = 5:
+• Muestra el valor de contador++
+• Muestra el valor actual de contador
+• Muestra el valor de ++contador
+• Muestra el valor actual de contador
+• Repite con -- y contador-- */
+
+	int contador = 5;
+
+	printf("\nValor contador = %d", contador);
+	printf("\nValor actual del contador = %d", contador);
+
+
+	printf("\nValor contador++ = %d", contador++);
+	printf("\nValor actual del contador = %d", contador);
+
+	printf("\nValor ++contador = %d", ++contador);
+	printf("\nValor actual del contador = %d", contador);
+
+	printf("\nValor --contador = %d", --contador);
+	printf("\nValor actual del contador = %d", contador);
+
+	printf("\nValor contador-- = %d", contador--);
+	printf("\nValor actual del contador = %d\n", contador);
 
 
 
 
+	/*Ejercicio 13: Conversión de Tipos
 
+ Objetivo: Practicar el casting de tipos de datos.
+Crea:
+• Un int con valor 10
+• Un float con valor 3.7
+• Divide el entero entre el float y muestra el resultado
+• Convierte el resultado a entero y muéstralo
+• Muestra la parte decimal perdida en la conversión */
+
+	int entero_1 = 10;
+	float decimal_1 = 3.7;
+
+	float division = entero_1 / decimal_1;
+
+	printf("\nEl resultado de la division entre %d y %.1f es %.4f", entero_1, decimal_1, division);
+	printf("\nEl resultado de la division anterior convertido a entero es ---> %d", (int)division);
+	printf("\nLa parte decimal se podría expresar como el error entre el resultado de tipo float y el de tipo int\n");
+	printf("Entonces quedaría %.4f - %d = %.4f\n\n", division, (int)division, division - (int)division);
+
+	/*Ejercicio 14: Strings Complejos
+Objetivo: Trabajar con strings que contienen caracteres especiales.
+Crea strings que contengan:
+• Comillas dobles dentro del string
+• Tabulaciones (\t)
+• Saltos de línea (\n)
+• Barras invertidas (\\)
+• Imprime cada uno correctamente */
+
+	char string_comillas[] = "Esto va sin comillas dobles \"y esto va con comillas dobles\"";
+
+	printf("%s\n", string_comillas);
+
+	char tabulacion[] = "Nombre:\tJuan\tApellido:\tPérez";
+	printf("Con tabulaciones: %s\n", tabulacion);
+
+	char string_salto_linea[] = "Aqui les va un poema:\n\nMi Dios es hambre\nMi Dios es Nieve\nMi Dios es No\nMi Dios es engano";
+	printf("%s\n", string_salto_linea);
+
+
+	/*Ejercicio 15: Calculadora Básica
+Objetivo: Integrar conocimientos en un programa útil.
+Crea una calculadora que:
+• Defina dos números
+• Realice las cuatro operaciones básicas
+• Muestre los resultados con formato apropiado
+• Maneje la división por cero mostrando un mensaje de error*/
+
+	float numero_uno = 3.5;
+	float numero_dos = 6.6;
+
+	if (numero_dos == 0) {
+
+		printf("\nERROR: NO ES POSIBLE DIVIDIR POR CERO\n");
+	}
+	
+	else {
+		printf("\nsuma entre %.1f y %.1f ---> %.1f\n", numero_uno, numero_dos, numero_uno + numero_dos);
+	printf("resta entre %.1f y %.1f ---> %.1f\n", numero_uno, numero_dos, numero_uno - numero_dos);
+	printf("producto entre %.1f y %.1f ---> %.3f\n", numero_uno, numero_dos, numero_uno * numero_dos);
+	printf("division entre %.1f y %.1f ---> %.3f\n\n", numero_uno, numero_dos, numero_uno / numero_dos);
+	}
+
+	/*Ejercicio 16: Sistema de Información Personal 
+
+ Objetivo: Crear un programa que muestre información organizada. 
+Crea variables para almacenar: 
+• Nombre (string) 
+• Edad (int) 
+• Altura (float) 
+• Peso (float) 
+• Es estudiante (bool) 
+Calcula e imprime: 
+• IMC (Índice de Masa Corporal) 
+• Si es mayor de edad 
+• Una presentación completa de la persona */
+
+	
 }
+
+	
+
 
 
