@@ -344,6 +344,35 @@ Calcula e imprime:
 • Si es mayor de edad 
 • Una presentación completa de la persona */
 
+	char nombre_persona[] = "Aquiles Salto";
+	int edad_persona = 23;
+	float altura = 1.77;
+	float peso = 77;
+	bool estudiante = true;
+
+	/*Una persona pesa 70 kg y mide 1.60 m. 
+Primero, eleva al cuadrado la estatura: 1.60 m * 1.60 m = 2.56 m². 
+Luego, divide el peso entre este resultado: 70 kg / 2.56 m² = 27.34. 
+Por lo tanto, su IMC es 27.34. */
+
+	float IMC = peso / (altura * altura);
+
+	printf("\nIndice de masa corporal de %s ---> %.3f\n", nombre_persona, IMC);
+
+	if (edad_persona >= 18) {
+	printf("%s es mayor de edad\n",nombre_persona);
+	}
+	else {
+
+	printf("%s es menor de edad\n",nombre_persona);
+
+	}
+
+
+
+	printf("%s es estudiante? ---> %s\n",nombre_persona, estudiante ? "Si" : "No");
+
+
 	
 }
 
