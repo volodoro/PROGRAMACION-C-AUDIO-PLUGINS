@@ -1,0 +1,100 @@
+```cpp
+#include <iostream>
+#include <string>
+
+
+
+// Definicion de la clase MyClass - - - - - - - - - - - - - - - - - - 
+class MyClass
+{
+public:
+	MyClass();	// Constructor    ---> ambas clases deben ser publicas
+	~MyClass();	// Destructor     ---> ambas clases deben ser publicas
+
+
+
+	/*el constructor y destructor difieren de otras variables porque no necesitan una clave de declaración previa
+	solo tienen que tener el mismo nombre de la clase*/
+
+//	void MyFuncion(); // ---> Aquí por ejemplo estoy declarando que MyFuncion es un void, i.e. no entrega un valor de salida
+
+private:
+
+};
+
+// Implementacion de la clase
+MyClass::MyClass()
+{
+}
+
+MyClass::~MyClass()
+{
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+class WindowVector
+{
+public:
+	WindowVector(int length); //constructor 
+	~WindowVector(); //destructor
+
+	//funciones:
+
+	void SetALLValues(float val);
+	void SetRamp(float val_ini, float val_end);
+	void ToPrint(std::string title);
+
+private:
+	int length; //esta variable indica el largo del arreglo que será el vector
+	float* values = NULL; //acá se alojarán los valores en concreto
+
+};
+
+WindowVector::WindowVector(int length) //implementacion de la función constructor
+{
+	this->length = length;
+	this->values = new float[length]; //esta es una forma de asignar memoria, como lo habíamos visto anteriormente con 'malloc'
+}
+	//esta es la inicialización de values, pues antes era un vector nulo con NULL
+//la flecha -> se utiliza para punteros. Para valores tradicionales se utilizan puntos
+
+WindowVector::~WindowVector() 
+{
+}
+
+void WindowVector::SetALLValues(float val) //aquí se le asignarán valores al array que he creado
+{
+	for (int n = 0; n < this->length; n++) {
+		this->values[n] = val;
+	}
+}
+
+void WindowVector::SetRamp(float val_ini, float val_end)
+{
+
+}
+
+void WindowVector::ToPrint(std::string title)
+{
+	std::cout << title << std::endl;
+	for (int n = 0; n < this->length; n++) {
+		std::cout << n << ") " << this->values[n] << std::endl;
+	}
+
+}
+
+int main()
+{
+	MyClass obj; // Crear un objeto de WindowVector
+	//En MyClass no hay que entregar nada en el constructor
+
+	WindowVector vector(10); //estamos creando e inicializando una clase.
+	//le tengo que dar un valor a la función. Recordemos el formato --> WindowVector(int length);
+
+	WindowVector* ptr_vector = NULL; //creacion de una instancia puntero de la clase
+	//ahora hacemos la inicializacion
+
+	ptr_vector = new WindowVector(20); //inicializando una clase puntero
+
+```
