@@ -70,10 +70,18 @@ void WindowVector::SetALLValues(float val) //aquí se le asignarán valores al a
 	}
 }
 
-void WindowVector::SetRamp(float val_ini, float val_end)
+void WindowVector::SetRamp(float val_ini, float val_end) //cómo transformamos el problema en la ecuación que debemos programar
 {
-
+	
+	float delta = (val_ini - val_end) / (length - 1);
+	float valor_ramp = 0;
+	for (int i = 0; i < length; valor_ramp += delta);
+	{
+		printf("Valor numero %d = %.3f",i, valor_ramp);
+	}
 }
+	
+
 
 void WindowVector::ToPrint(std::string title)
 {
@@ -96,5 +104,9 @@ int main()
 	//ahora hacemos la inicializacion
 
 	ptr_vector = new WindowVector(20); //inicializando una clase puntero
+
+	WindowVector* ptr_vector_2 = new WindowVector(11); // lo que he hecho es que las dos lineas anteriores que estaban separadas, ahora las he juntado
+
+}
 
 ```
