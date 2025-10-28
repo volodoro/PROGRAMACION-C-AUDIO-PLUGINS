@@ -437,5 +437,97 @@ el rating automáticamente tome el string "NR". Luego se implementó una funció
 entrega el rating para poder imprimirlo, ya que de otra manera no podríamos acceder a él 
 debido a su carácter privado.
 
+# Herencia
+
+La herencia permite definir una clase, luego otras, y hacer que esas otras puedan extender esas pueden extender o heredar las funciones de la clase original
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Chef {
+
+  public:
+	  void makeChicken() {
+		  cout << "The chef makes chicken" << endl;
+	  }
+	  void makeSalad() {
+		  cout << "The chef makes salad" << endl;
+	  }
+	  void makeSpecialDish() {
+		  cout << "The chef makes special Dish" << endl;
+	  
+	  }
+};
+
+
+int main()
+{
+
+	Chef chef;
+	chef.makeChicken();
+	return 0;
+	
+}
+```
+En el código anterior hemos definido una clase llamada Chef, donde existen tres funciones bastante evidentes.
+
+Ahora, ¿qué pasa si además de representar un chef común y corriente queremos representar un chef italiano? Crearemos una clase para eso.
+
+Digamos que para este propósito queremos que el chef italiano sea capaz de preparar todos los platos del chef genérico (pollo, ensalada, special dish). Para una ocasión como esta es que podemos utilizar la herencia. Podemos heredar todas las funciones de chef al chef italiano.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Chef {
+
+  public:
+	  void makeChicken() {
+		  cout << "The chef makes chicken" << endl;
+	  }
+	  void makeSalad() {
+		  cout << "The chef makes salad" << endl;
+	  }
+	  void makeSpecialDish() {
+		  cout << "The chef makes bbq ribs" << endl;
+	  
+	  }
+};
+
+class ItalianChef : public Chef {
+
+  public:
+
+	void makePasta() {
+		cout << "The chef mañes pasta" << endl;
+	}
+	void makeSpecialDish() {
+		cout << "The chef makes chicken parm" << endl;
+
+	}
+};
+
+int main()
+{
+
+	Chef chef;
+	chef.makeSpecialDish();
+
+	ItalianChef italianChef;
+
+	italianChef.makeSpecialDish();
+	
+	return 0;
+	
+}
+```
+Como podemos apreciar en el fragmento de código de arriba, hemos creado una clase llamada ItalianChef que hereda todas las fucniones del chef corriente a través de la línea public: Chef.
+
+También podemos notar que, además de heredar todas las funciones existentes en la clase Chef, hemos implementado una función llamada makesPasta, que solo podrá ser realizada por la subclase ItalianChef y no por la corriente.
+
+Otra cosa que podemos hacer es sobreescribir ciertos aspectos de alguna función heredada.
+Por ejemplo, se puede ver que en ItalianChef la función makesSpecialDish ahora imprimirá en la consola "The chefakes Chicken Param" y no el "The chef makes
+bbq ribs" como lo dictaba la función originalmente.
 
 
