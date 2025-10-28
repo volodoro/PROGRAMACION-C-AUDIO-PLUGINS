@@ -306,3 +306,136 @@ Por ejemplo:
 ```
 En este caso quisiéramos forzar el uso de una nomenclatura válida.
 
+class Movie { //nombre de la clase
+   public: //esto significa que cualquier otra pieza fuera de la clase puede acceder a los datos dentro 
+	   string title; //atributo 1
+	   string director; //atributo 2
+	   string rating; //atributo 3
+	   Movie(string aTitle, string aDirector, string aRating) { //constructor(argumento1, argumento2, argumento2)
+
+		   title = aTitle;
+		   director = aDirector;
+		   rating = aRating;
+	   }
+
+
+};
+
+Cuando usamos private:, hacemos que ninguna otra parte del código que se encuentre fuera de la clase  Movie pueda acceder a la fracción de código que esto afecte
+
+por ejemplo 
+
+```
+class Movie { //nombre de la clase
+private:
+	   string title; //atributo 1
+   public:
+	   string director; //atributo 2
+	   string rating; //atributo 3
+	   Movie(string aTitle, string aDirector, string aRating) { //constructor(argumento1, argumento2, argumento2)
+
+		   title = aTitle;
+		   director = aDirector;
+		   rating = aRating;
+	   }
+
+
+};
+```
+En el caso de arriba, niguna otra parte del código podrá acceder a los datos almacenados 
+en el atributo title, no se podrá imprimir, modificar, etc.
+
+Podemos aprovechar lo público y privado para controlar qué ratings se asignan a la película
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Movie { //nombre de la clase
+private:
+	string rating; //atributo 3
+   public: //esto significa que cualquier otra pieza fuera de la clase puede acceder a los datos dentro 
+	   string title; //atributo 1
+	   string director; //atributo 2
+	   Movie(string aTitle, string aDirector, string aRating) { //constructor(argumento1, argumento2, argumento2)
+
+		   title = aTitle;
+		   director = aDirector;
+		   setRating(aRating);
+	   }
+
+	   void setRating(string aRating) {
+
+		   rating = aRating;
+	   }
+
+};
+
+
+int main()
+{
+
+	Movie avengers("The Avengers", "Joss Whedon", "PG-13");
+	avengers.setRating("Dog");
+	
+}
+```
+en este caso, no podemos acceder al rating directamente porque es privado, sin embargo al
+definir la función setRating, que se encuentra en la parte pública de la clase, podemos acceder al rating a través de ella pero llamando a avengers.setRating e ingresando el string en su argumento.
+
+Ahora lo que podemos hacer es implementar reglas dentro de la función setRating para
+qué datos serán válidos
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Movie { //nombre de la clase
+private:
+	string rating; //atributo 3
+   public: //esto significa que cualquier otra pieza fuera de la clase puede acceder a los datos dentro 
+	   string title; //atributo 1
+	   string director; //atributo 2
+	   Movie(string aTitle, string aDirector, string aRating) { //constructor(argumento1, argumento2, argumento2)
+
+		   title = aTitle;
+		   director = aDirector;
+		   setRating(aRating);
+	   }
+
+	   void setRating(string aRating) {
+
+		   if (aRating == "G" || aRating == "PG" || aRating == "PG-13" || aRating == "R" || aRating == "NR") {
+			   rating = aRating;
+		   }
+		   else
+			   rating = "NR";
+
+	   }
+
+	   string getRating() {
+
+		   return rating;
+	   }
+
+};
+
+
+int main()
+{
+
+	Movie avengers("The Avengers", "Joss Whedon", "PG-13");
+	avengers.setRating("PG-13");
+
+	cout << avengers.getRating();
+	
+}
+```
+en el código de arriba lo que hicimos fue implementtar un if para restringir los posibles
+ratings que pueden ser ingresados a través de la función setRating, por lo que en caso de que el string ingresado coincida con alguno de los estipulados en el if, se dará paso a que rating sea igual a aRating, en el caso de que no coincida, con else harmeos que
+el rating automáticamente tome el string "NR". Luego se implementó una función que nos 
+entrega el rating para poder imprimirlo, ya que de otra manera no podríamos acceder a él 
+debido a su carácter privado.
+
+
+
